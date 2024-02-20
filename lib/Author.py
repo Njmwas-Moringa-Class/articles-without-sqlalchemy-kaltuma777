@@ -1,5 +1,5 @@
 class Author:
-    _all_authors = []  #this field will save all the authors
+    _all_authors = []  # all the authors saving
 
     def _init_(self, name):
         self._name = name
@@ -16,7 +16,7 @@ class Author:
         return list(set(article.magazine() for article in self._articles))
 
     def add_article(self, magazine, title):
-        from Article import Article  # Import here to avoid circular import
+        from Article import Article  
         new_article = Article(self, magazine, title)
         self._articles.append(new_article)
         return new_article
