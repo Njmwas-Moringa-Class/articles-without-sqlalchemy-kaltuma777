@@ -15,7 +15,7 @@ class Magazine:
         self._name = name
         self._category = category
         self._articles = []  # List to store articles of the magazine
-        Magazine._all_magazines.append(self)  # Add the magazine to the list of all magazines
+        Magazine._all_magazines.append(self)  
 
     def name(self):
         """
