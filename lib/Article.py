@@ -1,54 +1,43 @@
+# import ipdb
 
 class Article:
-    _all_articles = []  # List to store all articles
-    
+    all = []  # List to store all articles
+
     def __init__(self, author, magazine, title):
         """
         Initialize an article with an author, magazine, and title.
         
         Args:
-            author (Author): The author of the article.
+            author (str): The author of the article.
             magazine (str): The magazine where the article is published.
             title (str): The title of the article.
         """
         self._author = author
         self._magazine = magazine
         self._title = title
-        Article._all_articles.append(self)  # Add the article to the list of all articles
-    
-    def title(self):
-        """
-        Get the title of the article.
-        
-        Returns:
-            str: The title of the article.
-        """
-        return self._title
-    
-    def author(self):
-        """
-        Get the author of the article.
-        
-        Returns:
-            Author: The author of the article.
-        """
+
+        Article.all.append(self)
+
+    def get_author(self):
         return self._author
     
-    def magazine(self):
-        """
-        Get the magazine where the article is published.
-        
-        Returns:
-            str: The magazine where the article is published.
-        """
+    def get_magazine(self):
         return self._magazine
     
-    @classmethod
-    def all(cls):
-        """
-        Get all articles.
-        
-        Returns:
-            list: List of all articles.
-        """
-        return cls._all_articles
+    def get_title(self):
+        return self._title
+
+    author = property(get_author)
+    magazine = property(get_magazine)
+    title = property(get_title)
+
+if __name__ == "__main__":
+    
+    first_article = Article(author="Obama", magazine="Embraced", title="Leadership")
+    second_article = Article(author="Fiodor", magazine="Fema", title="Energy")
+    third_article = Article(author="Sheldon", magazine="Defacto", title="Lies")
+    fourth_article = Article(author="Obama", magazine="Physics", title="Poles")
+
+    # Article.get_article_by()
+
+    # ipdb.set_trace()
